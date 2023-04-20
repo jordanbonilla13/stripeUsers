@@ -2,14 +2,13 @@ pipeline {
 	agent any
 	tools {
 		maven 'maven_3.9.0'
-    }
+	}
 	stages{
 		stage ('build maven'){
 			steps {
 				checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '09aa1ca0-6196-4967-83f9-6c55785becbb', url: 'https://github.com/jordanbonilla13/stripeUsers']])
 				sh 'mvn clean install'
 			}
-
-        }
+		}
 	}
 }
