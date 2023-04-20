@@ -7,8 +7,7 @@ pipeline {
 		stage ('build maven'){
 			steps {
 				checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '09aa1ca0-6196-4967-83f9-6c55785becbb', url: 'https://github.com/jordanbonilla13/stripeUsers']])
-				sh 'cd stripe'
-				sh 'mvn clean install'
+				sh 'mvn -f stripe/ clean install'
 			}
 		}
 	}
